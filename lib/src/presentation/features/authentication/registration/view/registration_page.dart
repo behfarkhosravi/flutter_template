@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../core/extensions/app_localization.dart';
 import '../../../../../core/extensions/go_router_extension.dart';
@@ -23,7 +24,12 @@ class _RegistrationPageState extends State<RegistrationPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 80),
-            const FlutterLogo(size: 100),
+            // TODO: Replace with a more appropriate widget when backend is integrated
+            SvgPicture.asset(
+              'assets/images/authentication.svg',
+              height: 100,
+              width: 100,
+            ),
             const SizedBox(height: 80),
             TextFormField(
               decoration: InputDecoration(hintText: context.locale.firstName),

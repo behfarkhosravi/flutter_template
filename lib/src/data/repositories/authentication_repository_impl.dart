@@ -84,6 +84,11 @@ final class AuthenticationRepositoryImpl extends AuthenticationRepository {
 
   @override
   Future<void> logout() async {
-    await local.remove([CacheKey.isLoggedIn, CacheKey.rememberMe]);
+    await local.remove([
+      CacheKey.isLoggedIn,
+      CacheKey.rememberMe,
+      CacheKey.accessToken,
+      CacheKey.refreshToken,
+    ]);
   }
 }
