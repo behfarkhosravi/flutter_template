@@ -20,7 +20,6 @@ class Logout extends _$Logout {
 
     try {
       await ref.read(logoutUseCaseProvider).call();
-      ref.read(repositoryResetUseCaseProvider).call(ref);
       state = const LogoutState(type: Status.success);
     } catch (e) {
       state = LogoutState(type: Status.error, error: e.toString());
