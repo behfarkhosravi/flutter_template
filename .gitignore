@@ -17,7 +17,6 @@
 *.g.dart
 *.mapper.dart
 *.gen.dart
-.metadata
 
 # IntelliJ related
 *.iml
