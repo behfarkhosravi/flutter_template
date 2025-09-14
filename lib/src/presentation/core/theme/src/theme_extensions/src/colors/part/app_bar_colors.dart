@@ -29,13 +29,13 @@ class _DarkAppBarColors extends AppBarColors {
   const _DarkAppBarColors();
 
   @override
-  Color get background => _Primitive.neutral60;
+  Color get background => Colors.transparent;
 
   @override
   Color get icon => _Primitive.neutral0;
 
   @override
-  Color get surfaceTint => _Primitive.neutral60;
+  Color get surfaceTint => Colors.transparent;
 
   @override
   Color get title => _Primitive.neutral0;

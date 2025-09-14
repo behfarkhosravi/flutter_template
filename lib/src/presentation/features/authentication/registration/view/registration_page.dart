@@ -43,7 +43,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
             const SizedBox(height: 32),
             FilledButton(
               onPressed: () {
-                throw UnimplementedError();
+                context.pushNamedAndRemoveUntil(Routes.home);
               },
               child: Text(context.locale.continueAction),
             ),
