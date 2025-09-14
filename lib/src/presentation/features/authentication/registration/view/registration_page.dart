@@ -18,49 +18,52 @@ class _RegistrationPageState extends State<RegistrationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(context.locale.signUp)),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 80),
-            // TODO: Replace with a more appropriate widget when backend is integrated
-            SvgPicture.asset(
-              'assets/images/authentication.svg',
-              height: 100,
-              width: 100,
-            ),
-            const SizedBox(height: 80),
-            TextFormField(
-              decoration: InputDecoration(hintText: context.locale.firstName),
-            ),
-            const SizedBox(height: 16),
-            TextFormField(
-              decoration: InputDecoration(hintText: context.locale.lastName),
-            ),
-            const SizedBox(height: 16),
-            TextFormField(
-              decoration: InputDecoration(hintText: context.locale.email),
-            ),
-            const SizedBox(height: 16),
-            TextFormField(
-              decoration: InputDecoration(hintText: context.locale.password),
-            ),
-            const SizedBox(height: 32),
-            FilledButton(
-              onPressed: () {
-                context.pushNamedAndRemoveUntil(Routes.home);
-              },
-              child: Text(context.locale.continueAction),
-            ),
-            LinkText(
-              text: context.locale.alreadyHaveAccount,
-              linkText: context.locale.signIn,
-              onTap: () {
-                context.pushNamedAndRemoveUntil(Routes.login);
-              },
-            ),
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 80),
+              // TODO: Replace with a more appropriate widget when backend is integrated
+              SvgPicture.asset(
+                'assets/images/authentication.svg',
+                height: 100,
+                width: 100,
+              ),
+              const SizedBox(height: 80),
+              TextFormField(
+                decoration: InputDecoration(hintText: context.locale.firstName),
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
+                decoration: InputDecoration(hintText: context.locale.lastName),
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
+                decoration: InputDecoration(hintText: context.locale.email),
+              ),
+              const SizedBox(height: 16),
+              TextFormField(
+                decoration: InputDecoration(hintText: context.locale.password),
+              ),
+              const SizedBox(height: 32),
+              FilledButton(
+                onPressed: () {
+                  context.pushNamedAndRemoveUntil(Routes.home);
+                },
+                child: Text(context.locale.continueAction),
+              ),
+              const SizedBox(height: 24),
+              LinkText(
+                text: context.locale.alreadyHaveAccount,
+                linkText: context.locale.signIn,
+                onTap: () {
+                  context.pushNamedAndRemoveUntil(Routes.login);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -186,17 +186,17 @@ class LightColorExtension extends ThemeExtension<LightColorExtension>
 class DarkColorExtension extends ThemeExtension<DarkColorExtension>
     implements ColorExtension {
   const DarkColorExtension({
-    this.border = const Color(0x4DFFFFFF),
+    this.border = const Color(0xFFFFD700),
     this.icon = const Color(0xFFFFFFFF),
-    this.onPrimary = const Color(0xFFFFFFFF),
-    this.primary = const Color(0x1AFFFFFF),
-    this.scaffoldBackground = const Color(0xFF0D1117),
+    this.onPrimary = const Color(0xFF000000),
+    this.primary = const Color(0xFFFFD700),
+    this.scaffoldBackground = const Color(0xFF000000),
     this.success = const Color(0xFF28A745),
     this.error = const Color(0xFFDC3545),
     this.warning = const Color(0xFFFFC107),
     this.info = const Color(0xFF17A2B8),
     this.disabled = const Color(0x4DFFFFFF),
-    this.active = const Color(0xFFFFFFFF),
+    this.active = const Color(0xFFFFD700),
     this.inactive = const Color(0x4DFFFFFF),
     this.appBar = const _DarkAppBarColors(),
     this.bottomNavBar = const _DarkBottomNavBarColors(),
