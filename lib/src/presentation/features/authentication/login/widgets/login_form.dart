@@ -27,7 +27,6 @@ class _LoginFormState extends State<_LoginForm> {
           decoration: InputDecoration(hintText: context.locale.email),
           validator: context.validator.apply([
             RequiredValidation(),
-            EmailValidation(),
           ]),
         ),
         const SizedBox(height: 16),
