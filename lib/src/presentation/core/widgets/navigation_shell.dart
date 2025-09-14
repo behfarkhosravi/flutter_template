@@ -16,7 +16,6 @@ class _NavigationShellState extends State<NavigationShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Flutter Template')),
       body: widget.statefulNavigationShell,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: widget.statefulNavigationShell.currentIndex,
@@ -27,6 +26,10 @@ class _NavigationShellState extends State<NavigationShell> {
           BottomNavigationBarItem(
             icon: const Icon(Icons.home),
             label: context.locale.home,
+          ),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.airplanemode_active),
+            label: 'Journeys',
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.person),

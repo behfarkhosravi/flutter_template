@@ -5,7 +5,9 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/extensions/app_localization.dart';
 import '../../../core/application_state/logout_provider/logout_provider.dart';
 import '../../../core/router/routes.dart';
+import '../../../core/widgets/glass_app_bar.dart';
 import '../../../core/widgets/loading_indicator.dart';
+import '../../../core/widgets/user_profile_widget.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -28,13 +30,16 @@ class _HomePageState extends ConsumerState<HomePage> {
     final state = ref.watch(logoutProvider);
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: const GlassAppBar(),
       body: SafeArea(
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const UserProfileWidget(),
+                const SizedBox(height: 32),
                 Text(context.locale.home),
                 const SizedBox(height: 16),
                 FilledButton(

@@ -20,6 +20,18 @@ StatefulShellRoute _shellRoutes(ref) {
       StatefulShellBranch(
         routes: [
           GoRoute(
+            path: Routes.journeys,
+            name: Routes.journeys,
+            pageBuilder: (context, state) {
+              return const MaterialPage(
+                  child: JourneysPage()); // Ensure JourneysPage is imported
+            },
+          ),
+        ],
+      ),
+      StatefulShellBranch(
+        routes: [
+          GoRoute(
             path: Routes.profile,
             name: Routes.profile,
             pageBuilder: (context, state) {
