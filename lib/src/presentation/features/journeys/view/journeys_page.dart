@@ -31,9 +31,9 @@ class _JourneysPageState extends State<JourneysPage> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: GlassAppBar(),
+      appBar: const GlassAppBar(),
       body: Center(
         child: SizedBox(
           height: 400,
