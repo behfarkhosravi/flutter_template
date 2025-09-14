@@ -21,7 +21,9 @@ class GlassAppBar extends ConsumerWidget implements PreferredSizeWidget {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: AppBar(
-          backgroundColor: Colors.white.withOpacity(0.1),
+          backgroundColor: isDarkMode
+              ? Colors.white.withOpacity(0.1)
+              : Colors.black.withOpacity(0.05),
           elevation: 0,
           title: const Text('My App'),
           centerTitle: true,
