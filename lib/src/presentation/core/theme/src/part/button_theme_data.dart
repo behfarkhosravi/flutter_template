@@ -31,11 +31,11 @@ class _FilledButtonLightThemeData with ThemeExtensions {
           StadiumBorder(side: BorderSide(color: lightColor.primary, width: 2)),
         ),
         padding: WidgetStateProperty.all(
-          const EdgeInsets.symmetric(horizontal: 24),
+          const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
         ),
-        minimumSize: WidgetStateProperty.all(const Size(double.infinity, 48)),
+        minimumSize: WidgetStateProperty.all(const Size(0, 48)),
         textStyle: WidgetStateProperty.all(
-          const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
         ),
       ),
     );
@@ -51,9 +51,9 @@ class _ElevatedButtonLightThemeData with ThemeExtensions {
           StadiumBorder(side: BorderSide(color: lightColor.primary, width: 2)),
         ),
         padding: WidgetStateProperty.all(
-          const EdgeInsets.symmetric(horizontal: 24),
+          const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         ),
-        minimumSize: WidgetStateProperty.all(const Size(double.infinity, 48)),
+        minimumSize: WidgetStateProperty.all(const Size(0, 48)),
         textStyle: WidgetStateProperty.all(
           const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
         ),
@@ -107,11 +107,11 @@ class _FilledButtonDarkThemeData with ThemeExtensions {
           StadiumBorder(side: BorderSide(color: darkColor.primary, width: 2)),
         ),
         padding: WidgetStateProperty.all(
-          const EdgeInsets.symmetric(horizontal: 24),
+          const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
         ),
-        minimumSize: WidgetStateProperty.all(const Size(double.infinity, 48)),
+        minimumSize: WidgetStateProperty.all(const Size(0, 48)),
         textStyle: WidgetStateProperty.all(
-          const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
         ),
       ),
     );
@@ -127,9 +127,9 @@ class _ElevatedButtonDarkThemeData with ThemeExtensions {
           StadiumBorder(side: BorderSide(color: darkColor.primary, width: 2)),
         ),
         padding: WidgetStateProperty.all(
-          const EdgeInsets.symmetric(horizontal: 24),
+          const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         ),
-        minimumSize: WidgetStateProperty.all(const Size(double.infinity, 48)),
+        minimumSize: WidgetStateProperty.all(const Size(0, 48)),
         textStyle: WidgetStateProperty.all(
           const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
         ),

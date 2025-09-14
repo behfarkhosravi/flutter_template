@@ -10,7 +10,7 @@ class JourneysPage extends StatefulWidget {
 }
 
 class _JourneysPageState extends State<JourneysPage> {
-  final PageController _pageController = PageController(viewportFraction: 0.6);
+  final PageController _pageController = PageController(viewportFraction: 0.5);
   double _currentPage = 0.0;
 
   @override
@@ -36,13 +36,16 @@ class _JourneysPageState extends State<JourneysPage> {
       appBar: const GlassAppBar(),
       body: Center(
         child: SizedBox(
-          height: 400,
+          height: 300,
           child: PageView.builder(
             controller: _pageController,
             itemCount: 10,
             itemBuilder: (context, index) {
-              final double scale =
-                  (1 - (_currentPage - index).abs() * 0.3).clamp(0.8, 1.0);
+              double scale = 1.0;
+              if (_pageController.position.haveDimensions) {
+                final double page = _pageController.page ?? 0;
+                scale = (1 - (page - index).abs() * 0.2).clamp(0.8, 1.0);
+              }
               return Transform.scale(
                 scale: scale,
                 child: _buildJourneyCard(index),

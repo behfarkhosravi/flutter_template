@@ -10,6 +10,10 @@ class GlassAppBar extends ConsumerWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final themeMode = ref.watch(themeProvider);
+    final isDarkMode = themeMode == ThemeMode.dark;
+    final currentLocale = ref.watch(localizationProvider);
+
     return ClipRRect(
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
@@ -18,10 +22,8 @@ class GlassAppBar extends ConsumerWidget implements PreferredSizeWidget {
           elevation: 0,
           title: const Text('My App'),
           centerTitle: true,
-          leading: IconButton(
-            icon: const Icon(Icons.language),
+          leading: TextButton(
             onPressed: () {
-              final currentLocale = ref.read(localizationProvider);
               if (currentLocale.languageCode == 'en') {
                 ref
                     .read(localizationProvider.notifier)
@@ -32,10 +34,17 @@ class GlassAppBar extends ConsumerWidget implements PreferredSizeWidget {
                     .changeLocale(const Locale('en'));
               }
             },
+            child: Text(
+              currentLocale.languageCode.toUpperCase(),
+              style: TextStyle(
+                color: isDarkMode ? Colors.white : Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
           actions: [
             IconButton(
-              icon: const Icon(Icons.brightness_6),
+              icon: Icon(isDarkMode ? Icons.nightlight_round : Icons.wb_sunny),
               onPressed: () {
                 ref.read(themeProvider.notifier).toggleTheme();
               },
