@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/extensions/app_localization.dart';
@@ -102,7 +103,15 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const FlutterLogo(size: 200),
+                        SvgPicture.asset(
+                          'assets/images/authentication.svg',
+                          height: 150,
+                          width: 150,
+                          colorFilter: ColorFilter.mode(
+                            context.color.primary,
+                            BlendMode.srcIn,
+                          ),
+                        ),
                         const SizedBox(height: 80),
                         Form(
                           key: _formKey,
@@ -119,6 +128,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                               ? const LoadingIndicator()
                               : Text(context.locale.login),
                         ),
+                        const SizedBox(height: 24),
                         LinkText(
                           text: context.locale.dontHaveAccount,
                           linkText: context.locale.signUp,

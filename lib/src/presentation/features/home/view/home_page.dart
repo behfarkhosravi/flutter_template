@@ -28,22 +28,26 @@ class _HomePageState extends ConsumerState<HomePage> {
     final state = ref.watch(logoutProvider);
 
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(context.locale.home),
-            const SizedBox(height: 16),
-            FilledButton(
-              onPressed: () {
-                ref.read(logoutProvider.notifier).call();
-              },
-              child: state.isLoading
-                  ? const LoadingIndicator()
-                  : Text(context.locale.logout),
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(context.locale.home),
+                const SizedBox(height: 16),
+                FilledButton(
+                  onPressed: () {
+                    ref.read(logoutProvider.notifier).call();
+                  },
+                  child: state.isLoading
+                      ? const LoadingIndicator()
+                      : Text(context.locale.logout),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

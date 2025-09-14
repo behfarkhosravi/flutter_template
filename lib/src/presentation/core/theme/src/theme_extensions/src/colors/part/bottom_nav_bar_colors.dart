@@ -21,8 +21,8 @@ class _DarkBottomNavBarColors extends BottomNavBarColors {
   const _DarkBottomNavBarColors();
 
   @override
-  Color get selectedItem => _Primitive.brand;
+  Color get selectedItem => const Color(0xFFFFD700);
 
   @override
-  Color get unselectedItem => _Primitive.neutral20;
+  Color get unselectedItem => const Color(0xFFFFFFFF);
 }

@@ -21,7 +21,8 @@ class _BottomNavigationBarLightThemeData with ThemeExtensions {
 class _BottomNavigationBarDarkThemeData with ThemeExtensions {
   BottomNavigationBarThemeData call() {
     return BottomNavigationBarThemeData(
-      elevation: .5,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
       showSelectedLabels: true,
       showUnselectedLabels: true,
       type: BottomNavigationBarType.fixed,
