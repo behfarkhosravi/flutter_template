@@ -27,9 +27,9 @@ class _NavigationShellState extends State<NavigationShell> {
             icon: const Icon(Icons.home),
             label: context.locale.home,
           ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.airplanemode_active),
-            label: 'Journeys',
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.airplanemode_active),
+            label: context.locale.journeys,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.person),

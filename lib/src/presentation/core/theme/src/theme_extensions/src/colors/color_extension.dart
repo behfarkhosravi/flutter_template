@@ -4,6 +4,8 @@ class ColorExtension {
   const ColorExtension({
     required this.border,
     required this.icon,
+    required this.sunIcon,
+    required this.moonIcon,
     required this.onPrimary,
     required this.primary,
     required this.scaffoldBackground,
@@ -22,6 +24,8 @@ class ColorExtension {
 
   final Color border;
   final Color icon;
+  final Color sunIcon;
+  final Color moonIcon;
   final Color onPrimary;
   final Color primary;
   final Color scaffoldBackground;
@@ -43,7 +47,9 @@ class LightColorExtension extends ThemeExtension<LightColorExtension>
     implements ColorExtension {
   const LightColorExtension({
     this.border = const Color(0xFFE0E0E0),
-    this.icon = const Color(0xFFFFFFFF),
+    this.icon = const Color(0xFFFFD700),
+    this.sunIcon = const Color(0xFFFFD700),
+    this.moonIcon = const Color(0xFF454545),
     this.onPrimary = const Color(0xFFFFFFFF),
     this.primary = const Color(0xFF1877F2),
     this.scaffoldBackground = const Color(0xFFF5F5F5),
@@ -65,6 +71,12 @@ class LightColorExtension extends ThemeExtension<LightColorExtension>
 
   @override
   final Color icon;
+
+  @override
+  final Color sunIcon;
+
+  @override
+  final Color moonIcon;
 
   @override
   final Color onPrimary;
@@ -112,6 +124,8 @@ class LightColorExtension extends ThemeExtension<LightColorExtension>
   LightColorExtension copyWith({
     Color? border,
     Color? icon,
+    Color? sunIcon,
+    Color? moonIcon,
     Color? onPrimary,
     Color? primary,
     Color? scaffoldBackground,
@@ -130,6 +144,8 @@ class LightColorExtension extends ThemeExtension<LightColorExtension>
     return LightColorExtension(
       border: border ?? this.border,
       icon: icon ?? this.icon,
+      sunIcon: sunIcon ?? this.sunIcon,
+      moonIcon: moonIcon ?? this.moonIcon,
       onPrimary: onPrimary ?? this.onPrimary,
       primary: primary ?? this.primary,
       scaffoldBackground: scaffoldBackground ?? this.scaffoldBackground,
@@ -159,6 +175,8 @@ class LightColorExtension extends ThemeExtension<LightColorExtension>
     return LightColorExtension(
       border: Color.lerp(border, other.border, t)!,
       icon: Color.lerp(icon, other.icon, t)!,
+      sunIcon: Color.lerp(sunIcon, other.sunIcon, t)!,
+      moonIcon: Color.lerp(moonIcon, other.moonIcon, t)!,
       onPrimary: Color.lerp(onPrimary, other.onPrimary, t)!,
       primary: Color.lerp(primary, other.primary, t)!,
       scaffoldBackground: Color.lerp(
@@ -188,6 +206,8 @@ class DarkColorExtension extends ThemeExtension<DarkColorExtension>
   const DarkColorExtension({
     this.border = const Color(0xFFFFD700),
     this.icon = const Color(0xFFFFFFFF),
+    this.sunIcon = const Color(0xFFFFD700),
+    this.moonIcon = const Color(0xFF89B4F8),
     this.onPrimary = const Color(0xFF000000),
     this.primary = const Color(0xFFFFD700),
     this.scaffoldBackground = const Color(0xFF000000),
@@ -209,6 +229,12 @@ class DarkColorExtension extends ThemeExtension<DarkColorExtension>
 
   @override
   final Color icon;
+
+  @override
+  final Color sunIcon;
+
+  @override
+  final Color moonIcon;
 
   @override
   final Color onPrimary;
@@ -256,6 +282,8 @@ class DarkColorExtension extends ThemeExtension<DarkColorExtension>
   DarkColorExtension copyWith({
     Color? border,
     Color? icon,
+    Color? sunIcon,
+    Color? moonIcon,
     Color? onPrimary,
     Color? primary,
     Color? scaffoldBackground,
@@ -274,6 +302,8 @@ class DarkColorExtension extends ThemeExtension<DarkColorExtension>
     return DarkColorExtension(
       border: border ?? this.border,
       icon: icon ?? this.icon,
+      sunIcon: sunIcon ?? this.sunIcon,
+      moonIcon: moonIcon ?? this.moonIcon,
       onPrimary: onPrimary ?? this.onPrimary,
       primary: primary ?? this.primary,
       scaffoldBackground: scaffoldBackground ?? this.scaffoldBackground,
@@ -303,6 +333,8 @@ class DarkColorExtension extends ThemeExtension<DarkColorExtension>
     return DarkColorExtension(
       border: Color.lerp(border, other.border, t)!,
       icon: Color.lerp(icon, other.icon, t)!,
+      sunIcon: Color.lerp(sunIcon, other.sunIcon, t)!,
+      moonIcon: Color.lerp(moonIcon, other.moonIcon, t)!,
       onPrimary: Color.lerp(onPrimary, other.onPrimary, t)!,
       primary: Color.lerp(primary, other.primary, t)!,
       scaffoldBackground: Color.lerp(

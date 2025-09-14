@@ -1,6 +1,6 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/src/presentation/core/widgets/glass_app_bar.dart';
+import 'package:flutter_template/src/presentation/features/journeys/widgets/journey_card.dart';
 
 class JourneysPage extends StatefulWidget {
   const JourneysPage({super.key});
@@ -11,17 +11,6 @@ class JourneysPage extends StatefulWidget {
 
 class _JourneysPageState extends State<JourneysPage> {
   final PageController _pageController = PageController(viewportFraction: 0.5);
-  double _currentPage = 0.0;
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController.addListener(() {
-      setState(() {
-        _currentPage = _pageController.page!;
-      });
-    });
-  }
 
   @override
   void dispose() {
@@ -41,48 +30,22 @@ class _JourneysPageState extends State<JourneysPage> {
             controller: _pageController,
             itemCount: 10,
             itemBuilder: (context, index) {
-              double scale = 1.0;
-              if (_pageController.position.haveDimensions) {
-                final double page = _pageController.page ?? 0;
-                scale = (1 - (page - index).abs() * 0.2).clamp(0.8, 1.0);
-              }
-              return Transform.scale(
-                scale: scale,
-                child: _buildJourneyCard(index),
+              return AnimatedBuilder(
+                animation: _pageController,
+                builder: (context, child) {
+                  double scale = 1.0;
+                  if (_pageController.position.haveDimensions) {
+                    final double page = _pageController.page ?? 0;
+                    scale = (1 - (page - index).abs() * 0.4).clamp(0.6, 1.0);
+                  }
+                  return Transform.scale(
+                    scale: scale,
+                    child: child,
+                  );
+                },
+                child: JourneyCard(index: index),
               );
             },
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildJourneyCard(int index) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white.withOpacity(0.1),
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(
-              color: Colors.white.withOpacity(0.2),
-            ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.airplanemode_active, size: 50),
-              const SizedBox(height: 16),
-              Text(
-                'Journey ${index + 1}',
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ],
           ),
         ),
       ),

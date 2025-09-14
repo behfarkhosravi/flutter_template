@@ -15,6 +15,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get profile => 'الملف الشخصي';
 
   @override
+  String get journeys => 'رحلات';
+
+  @override
   String get login => 'تسجيل الدخول';
 
   @override

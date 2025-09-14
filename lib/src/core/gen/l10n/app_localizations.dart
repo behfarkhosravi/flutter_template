@@ -112,6 +112,12 @@ abstract class AppLocalizations {
   /// **'Profile'**
   String get profile;
 
+  /// No description provided for @journeys.
+  ///
+  /// In en, this message translates to:
+  /// **'Journeys'**
+  String get journeys;
+
   /// No description provided for @login.
   ///
   /// In en, this message translates to:

@@ -15,6 +15,9 @@ class AppLocalizationsBn extends AppLocalizations {
   String get profile => 'প্রোফাইল';
 
   @override
+  String get journeys => 'যাত্রা';
+
+  @override
   String get login => 'লগইন';
 
   @override

@@ -4,6 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:flutter_template/src/presentation/core/application_state/localization_provider/localization_provider.dart';
 import 'package:flutter_template/src/presentation/core/application_state/theme_provider.dart';
+import 'package:flutter_template/src/presentation/core/theme/theme.dart';
+
+import 'package:country_flags/country_flags.dart';
 
 class GlassAppBar extends ConsumerWidget implements PreferredSizeWidget {
   const GlassAppBar({super.key});
@@ -22,32 +25,44 @@ class GlassAppBar extends ConsumerWidget implements PreferredSizeWidget {
           elevation: 0,
           title: const Text('My App'),
           centerTitle: true,
-          leading: TextButton(
-            onPressed: () {
-              if (currentLocale.languageCode == 'en') {
-                ref
-                    .read(localizationProvider.notifier)
-                    .changeLocale(const Locale('es'));
-              } else {
-                ref
-                    .read(localizationProvider.notifier)
-                    .changeLocale(const Locale('en'));
-              }
-            },
-            child: Text(
-              currentLocale.languageCode.toUpperCase(),
-              style: TextStyle(
-                color: isDarkMode ? Colors.white : Colors.black,
-                fontWeight: FontWeight.bold,
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 8.0),
+            child: IconButton(
+              iconSize: 40,
+              onPressed: () {
+                if (currentLocale.languageCode == 'en') {
+                  ref
+                      .read(localizationProvider.notifier)
+                      .changeLocale(const Locale('es'));
+                } else {
+                  ref
+                      .read(localizationProvider.notifier)
+                      .changeLocale(const Locale('en'));
+                }
+              },
+              icon: CountryFlag.fromLanguageCode(
+                currentLocale.languageCode == 'en'
+                    ? 'us'
+                    : currentLocale.languageCode,
+                height: 48,
+                width: 32,
+                borderRadius: 8,
               ),
             ),
           ),
           actions: [
-            IconButton(
-              icon: Icon(isDarkMode ? Icons.nightlight_round : Icons.wb_sunny),
-              onPressed: () {
-                ref.read(themeProvider.notifier).toggleTheme();
-              },
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: IconButton(
+                iconSize: 28,
+                icon: Icon(
+                  isDarkMode ? Icons.nightlight_round : Icons.wb_sunny,
+                  color: isDarkMode ? context.color.moonIcon : context.color.sunIcon,
+                ),
+                onPressed: () {
+                  ref.read(themeProvider.notifier).toggleTheme();
+                },
+              ),
             ),
           ],
         ),
