@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../../core/extensions/app_localization.dart';
 import '../../../../../core/extensions/go_router_extension.dart';
 import '../../../../core/router/routes.dart';
+import '../../../../core/theme/theme.dart';
 import '../../../../core/widgets/link_text.dart';
 
 class RegistrationPage extends StatefulWidget {
@@ -30,6 +31,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 'assets/images/authentication.svg',
                 height: 100,
                 width: 100,
+                colorFilter: ColorFilter.mode(
+                  context.color.primary,
+                  BlendMode.srcIn,
+                ),
               ),
               const SizedBox(height: 80),
               TextFormField(

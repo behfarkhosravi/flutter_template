@@ -107,6 +107,10 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           'assets/images/authentication.svg',
                           height: 150,
                           width: 150,
+                          colorFilter: ColorFilter.mode(
+                            context.color.primary,
+                            BlendMode.srcIn,
+                          ),
                         ),
                         const SizedBox(height: 80),
                         Form(

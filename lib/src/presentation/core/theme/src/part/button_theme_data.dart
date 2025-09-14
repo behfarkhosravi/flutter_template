@@ -102,6 +102,7 @@ class _FilledButtonDarkThemeData with ThemeExtensions {
             return darkColor.primary.withOpacity(0.1);
           },
         ),
+        foregroundColor: WidgetStateProperty.all(const Color(0xFFFFFFFF)),
         shape: WidgetStateProperty.all(
           StadiumBorder(side: BorderSide(color: darkColor.primary, width: 2)),
         ),
