@@ -35,11 +35,14 @@ abstract base class Repository<T> {
     try {
       final result = await operation();
       return Success(result);
-    } on Exception catch (e, stackTrace) {
+    } catch (e, stackTrace) {
+      Log.error(e.runtimeType.toString());
       Log.error(e.toString());
       Log.error(stackTrace.toString());
 
-      return Error(Failure.mapExceptionToFailure(e));
+      return Error(
+        Failure.mapExceptionToFailure(e is Exception ? e : Exception(e)),
+      );
     }
   }
 
@@ -71,8 +74,13 @@ abstract base class Repository<T> {
     try {
       final result = operation();
       return Success(result);
-    } on Exception catch (e) {
-      return Error(Failure.mapExceptionToFailure(e));
+    } catch (e, stackTrace) {
+      Log.error(e.runtimeType.toString());
+      Log.error(e.toString());
+      Log.error(stackTrace.toString());
+      return Error(
+        Failure.mapExceptionToFailure(e is Exception ? e : Exception(e)),
+      );
     }
   }
 }
