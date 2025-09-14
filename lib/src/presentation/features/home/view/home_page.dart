@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/extensions/app_localization.dart';
 import '../../../core/application_state/logout_provider/logout_provider.dart';
 import '../../../core/router/routes.dart';
-import '../../../core/theme/src/part/button_theme_data.dart';
 import '../../../core/widgets/glass_app_bar.dart';
 import '../../../core/widgets/loading_indicator.dart';
 import '../../../core/widgets/user_profile_widget.dart';
@@ -44,7 +43,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                 Text(context.locale.home),
                 const SizedBox(height: 16),
                 FilledButton(
-                  style: FilledButtonLightThemeData.contentSizeStyle(),
+                  style: Theme.of(context).filledButtonTheme.style?.copyWith(
+                        minimumSize: WidgetStateProperty.all(const Size(0, 48)),
+                      ),
                   onPressed: () {
                     ref.read(logoutProvider.notifier).call();
                   },

@@ -2,10 +2,10 @@ part of '../theme_data.dart';
 
 class FilledButtonLightThemeData with ThemeExtensions {
   FilledButtonThemeData call() {
-    return FilledButtonThemeData(style: _buttonStyle);
+    return FilledButtonThemeData(style: _buttonStyle(lightColor));
   }
 
-  static ButtonStyle get _buttonStyle => ButtonStyle(
+  static ButtonStyle _buttonStyle(LightColorExtension lightColor) => ButtonStyle(
         elevation: WidgetStateProperty.resolveWith<double>(
           (Set<WidgetState> states) {
             if (states.contains(WidgetState.hovered)) {
@@ -41,18 +41,20 @@ class FilledButtonLightThemeData with ThemeExtensions {
         ),
       );
 
-  static ButtonStyle fullWidthStyle() => _buttonStyle;
+  static ButtonStyle fullWidthStyle(LightColorExtension lightColor) =>
+      _buttonStyle(lightColor);
 
-  static ButtonStyle contentSizeStyle() =>
-      _buttonStyle.copyWith(minimumSize: WidgetStateProperty.all(const Size(0, 48)));
+  static ButtonStyle contentSizeStyle(LightColorExtension lightColor) =>
+      _buttonStyle(lightColor)
+          .copyWith(minimumSize: WidgetStateProperty.all(const Size(0, 48)));
 }
 
 class ElevatedButtonLightThemeData with ThemeExtensions {
   ElevatedButtonThemeData call() {
-    return ElevatedButtonThemeData(style: _buttonStyle);
+    return ElevatedButtonThemeData(style: _buttonStyle(lightColor));
   }
 
-  static ButtonStyle get _buttonStyle => ButtonStyle(
+  static ButtonStyle _buttonStyle(LightColorExtension lightColor) => ButtonStyle(
         elevation: WidgetStateProperty.all(0),
         backgroundColor: WidgetStateProperty.resolveWith<Color?>(
           (Set<WidgetState> states) {
@@ -77,10 +79,12 @@ class ElevatedButtonLightThemeData with ThemeExtensions {
         ),
       );
 
-  static ButtonStyle fullWidthStyle() => _buttonStyle;
+  static ButtonStyle fullWidthStyle(LightColorExtension lightColor) =>
+      _buttonStyle(lightColor);
 
-  static ButtonStyle contentSizeStyle() =>
-      _buttonStyle.copyWith(minimumSize: WidgetStateProperty.all(const Size(0, 48)));
+  static ButtonStyle contentSizeStyle(LightColorExtension lightColor) =>
+      _buttonStyle(lightColor)
+          .copyWith(minimumSize: WidgetStateProperty.all(const Size(0, 48)));
 }
 
 class _TextButtonLightThemeData with ThemeExtensions {
@@ -98,10 +102,10 @@ class _TextButtonLightThemeData with ThemeExtensions {
 
 class FilledButtonDarkThemeData with ThemeExtensions {
   FilledButtonThemeData call() {
-    return FilledButtonThemeData(style: _buttonStyle);
+    return FilledButtonThemeData(style: _buttonStyle(darkColor));
   }
 
-  static ButtonStyle get _buttonStyle => ButtonStyle(
+  static ButtonStyle _buttonStyle(DarkColorExtension darkColor) => ButtonStyle(
         elevation: WidgetStateProperty.resolveWith<double>(
           (Set<WidgetState> states) {
             if (states.contains(WidgetState.hovered)) {
@@ -138,18 +142,20 @@ class FilledButtonDarkThemeData with ThemeExtensions {
         ),
       );
 
-  static ButtonStyle fullWidthStyle() => _buttonStyle;
+  static ButtonStyle fullWidthStyle(DarkColorExtension darkColor) =>
+      _buttonStyle(darkColor);
 
-  static ButtonStyle contentSizeStyle() =>
-      _buttonStyle.copyWith(minimumSize: WidgetStateProperty.all(const Size(0, 48)));
+  static ButtonStyle contentSizeStyle(DarkColorExtension darkColor) =>
+      _buttonStyle(darkColor)
+          .copyWith(minimumSize: WidgetStateProperty.all(const Size(0, 48)));
 }
 
 class ElevatedButtonDarkThemeData with ThemeExtensions {
   ElevatedButtonThemeData call() {
-    return ElevatedButtonThemeData(style: _buttonStyle);
+    return ElevatedButtonThemeData(style: _buttonStyle(darkColor));
   }
 
-  static ButtonStyle get _buttonStyle => ButtonStyle(
+  static ButtonStyle _buttonStyle(DarkColorExtension darkColor) => ButtonStyle(
         elevation: WidgetStateProperty.all(0),
         backgroundColor: WidgetStateProperty.resolveWith<Color?>(
           (Set<WidgetState> states) {
@@ -174,10 +180,12 @@ class ElevatedButtonDarkThemeData with ThemeExtensions {
         ),
       );
 
-  static ButtonStyle fullWidthStyle() => _buttonStyle;
+  static ButtonStyle fullWidthStyle(DarkColorExtension darkColor) =>
+      _buttonStyle(darkColor);
 
-  static ButtonStyle contentSizeStyle() =>
-      _buttonStyle.copyWith(minimumSize: WidgetStateProperty.all(const Size(0, 48)));
+  static ButtonStyle contentSizeStyle(DarkColorExtension darkColor) =>
+      _buttonStyle(darkColor)
+          .copyWith(minimumSize: WidgetStateProperty.all(const Size(0, 48)));
 }
 
 class _TextButtonDarkThemeData with ThemeExtensions {
