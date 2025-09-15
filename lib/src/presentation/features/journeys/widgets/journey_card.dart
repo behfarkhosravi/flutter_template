@@ -1,13 +1,13 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_template/src/presentation/core/application_state/theme_provider.dart';
-import 'package:flutter_template/src/presentation/core/theme/theme.dart';
+import '../../../core/application_state/theme_provider.dart';
+import '../../../core/theme/theme.dart';
 
 class JourneyCard extends ConsumerWidget {
-  final int index;
-
   const JourneyCard({super.key, required this.index});
+
+  final int index;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -20,19 +20,19 @@ class JourneyCard extends ConsumerWidget {
         child: Container(
           decoration: BoxDecoration(
             color: isDarkMode
-                ? Colors.white.withOpacity(0.1)
-                : Colors.black.withOpacity(0.05),
+                ? Colors.white.withAlpha(25)
+                : Colors.black.withAlpha(12),
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
               color: isDarkMode
-                  ? Colors.white.withOpacity(0.2)
-                  : Colors.black.withOpacity(0.1),
+                  ? Colors.white.withAlpha(51)
+                  : Colors.black.withAlpha(25),
             ),
             boxShadow: [
               BoxShadow(
                 color: isDarkMode
-                    ? Colors.black.withOpacity(0.2)
-                    : Colors.black.withOpacity(0.1),
+                    ? Colors.black.withAlpha(51)
+                    : Colors.black.withAlpha(25),
                 blurRadius: 10,
                 spreadRadius: 5,
               ),
@@ -49,7 +49,7 @@ class JourneyCard extends ConsumerWidget {
               const SizedBox(height: 16),
               Text(
                 'Journey ${index + 1}',
-                style: context.textStyle.h2,
+                style: context.textStyle.headlineSmall,
               ),
             ],
           ),
